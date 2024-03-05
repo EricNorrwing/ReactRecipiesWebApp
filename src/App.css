@@ -1,0 +1,28 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.recipe-list{
+  background-color: #888;
+  border-radius: 8px;
+  padding: 10px;
+  color: aliceblue;
+}
+.recipe-component{
+  display: flex;
+  line-height: 0.5px;
+  gap: 10px;
+}
+.btn-add{
+  background-color: coral;
+}
+
+.recipe-delete{
+  background-color: #ff1100;
+  padding: 10px ;
+  border-radius: 10px;
+  cursor: pointer;
+}
