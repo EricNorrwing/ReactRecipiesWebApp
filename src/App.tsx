@@ -3,6 +3,13 @@ import "./App.css";
 import axios from "axios";
 import { Ingredient, Recipe } from "./components/types";
 import RecipeComponent from "./components/RecipeComponent";
+import RecipePages from './pages/RecipePages';
+import Home from "./pages/Home";
+import Recipes from "./pages/Recipes";
+import SingleRecipe from "./pages/SingleRecipe";
+import Default from "./pages/Default";
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from "react-router-dom";
+import Navbar from "./components/NavBar";
 
 function App() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -115,6 +122,17 @@ function App() {
 
   return (
     <>
+    <BrowserRouter>
+      <main>
+        <Navbar />
+        <Routes>
+          <Route path="/" Component={Home} />
+          <Route path="/recipes" Component={Recipes} />
+          <Route path="/recipes/:id" Component={SingleRecipe} />
+          <Route Component={Default} />
+        </Routes>
+      </main>
+    </BrowserRouter>
       <div className="recipe-list">
         {recipes.map((recipe) => (
           <RecipeComponent
