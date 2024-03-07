@@ -16,9 +16,10 @@ function App() {
   const [addRecipeTitle, setAddRecipeTitle] = useState('')
   const [addRecipeDescription, setAddRecipeDescription] = useState('')
   const [imgUrl, setImgUrl] = useState('')
-  const [time, setTime] = useState('')
+  const [time, setTime] = useState<number>();
   const [categories, setCategories] = useState('')
   const [instructions, setInstructions] = useState('')
+  
   const [ingredients, setIngredients] = useState<Ingredient[]>([])
   const [name, setName] = useState('')
   const [amount, setAmount] = useState('')
@@ -34,7 +35,7 @@ function App() {
     if (response.status === 200) {
       setRecipes(response.data);
 
-      console.log("recipe", response.data);
+      console.log("Recipes", response.data);
     }
   };
 
@@ -88,7 +89,7 @@ function App() {
       timeInMins: time,
       categories: categories,
       instructions: instructions,
-      
+      ingredients: []
     };
     setRecipes([newRecipe, ...recipes])
     /* setAddRecipeTitle('')
@@ -143,10 +144,11 @@ function App() {
           />
         ))}
       </div>
+      <br />
       <button className="btn-add" onClick={fetchRecipes}>
         Show all the recipes
-      </button>{" "}
-      <div>
+      </button>{" "} <br />
+      <div className="input-wrapper-home">
         <br />
         <input type='text' value={addRecipeTitle} onChange={(eventTitle) => setAddRecipeTitle(eventTitle.target.value)} placeholder='title' />
         <br />
@@ -160,15 +162,15 @@ function App() {
         <br />
         <input type='text' value={instructions} onChange={(e) => setInstructions(e.target.value)} placeholder='instructions' />
         <br />
+
         <br />
-        {/* <input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder='Ingredients Name' />
+        <input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder='Ingredients Name' />
         <br />
         <input type='text' value={amount} onChange={(e) => setAmount(e.target.value)} placeholder='Ingredients Amount' />
         <br />
         <input type='text' value={unit} onChange={(e) => setUnit(e.target.value)} placeholder='Ingredients Unit' />
-        <br /> */}
+        <br />
       </div>{" "}
-      <br />
       <button className="btn-add" onClick={addRecipe}>
         Add a new recipe
       </button>{" "}

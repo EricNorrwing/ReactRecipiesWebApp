@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
 import { FaSearch } from "react-icons/fa";
-import "./Search.css"
+import "./SearchBar.css"
 import axios from "axios";
+import Recipes from "../pages/Recipes";
 
-/* export default class Search extends Component
+/* JavaScript Syntax without React
+export default class Search extends Component
 {
     render() {
         return (
@@ -15,21 +17,30 @@ import axios from "axios";
     }    
 } */
 
-export const Search = () => {
+export const SearchBar = ({setResults}) => {
     const [input, setInput] = useState("")
     
     const URL = "https://sti-java-grupp1-5znlnp.reky.se";
 
     const fetchData = async (value) => {
+        try {
         const response = await axios.get(`${URL}/recipes`);
-
         if (response.status === 200) {
-            setInput(response.data);
-      
-            console.log("recipe", response.data);
-          }
-    }
-
+            const results = response.data.filter((recipe) => {
+                return (
+                    value &&
+                    recipe &&
+                    recipe.title &&
+                    recipe.title.toLowerCase().includes(value)
+                )
+            })
+            setResults(results)
+            console.log("Search Results", results);
+            }
+        } catch (error) {
+        console.error("Error fetching data:", error);
+        }
+    };
 
 
     const handleChange = (value) => {

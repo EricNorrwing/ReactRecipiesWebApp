@@ -5,7 +5,7 @@ export default class Header extends Component
     render() {
         return (
          <h4>
-            Hello From Header
+            Hello From Home Header
          </h4>     
        )    
     }    

@@ -20,6 +20,7 @@ const RecipeComponent = ({
         onChange={() => onSwitchComplete(recipe._id)}
       />
       <p>{recipe.title}</p>
+      {/* <img src={recipe.imageUrl}> */}
       <p className="recipe-delete" onClick={() => handleDelete(recipe._id)}>
         Delete
       </p>

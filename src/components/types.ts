@@ -10,12 +10,7 @@ export interface Recipe {
   categories?: string[],
   instructions?: string[],
   completed?:boolean,
-  ingredients: [Ingredient: {
-    name: string
-    amount: number
-    unit: string
-    }]
-  
+  ingredients: Ingredient,
 }
 
 

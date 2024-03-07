@@ -1,7 +1,6 @@
 import React, { Component, useState } from "react";
-import RecipeList from "../components/RecipeList"
 
-import { Search } from "../components/Search"
+import { SearchBar } from "../components/SearchBar"
 import { SearchResultsList } from "../components/SearchResultsList";
 
 
@@ -11,9 +10,9 @@ function Recipes() {
     return (
         <div>
             <div>
-                <Search setResults={setResults} />
+                <h3>Hello from Recipes</h3>
+                <SearchBar setResults={setResults} />
                 <SearchResultsList results={results} />
-
             </div>
         </div>
     )
