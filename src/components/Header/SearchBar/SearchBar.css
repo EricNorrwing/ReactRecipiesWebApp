@@ -7,6 +7,7 @@
     box-shadow: 0px 0px 8px #ddd;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 input {
@@ -14,10 +15,12 @@ input {
     border: none;
     height: 100%;
     font-size: 1.25rem;
+    
 }
 
 input:focus {
     outline: none; 
+    
 }
 
 #search-icon {

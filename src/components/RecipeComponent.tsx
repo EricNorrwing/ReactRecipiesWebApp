@@ -4,7 +4,6 @@ interface RecipeComponentProps {
   recipe: Recipe;
   onSwitchComplete: (id: string) => Promise<void>;
   handleDelete: (id: string) => Promise<void>;
-  
 }
 
 const RecipeComponent = ({
@@ -14,22 +13,17 @@ const RecipeComponent = ({
 }: RecipeComponentProps) => {
   return (
     <div className="recipe-component">
-      <input
+      {/* <input
         type="checkbox"
         checked={recipe.completed}
         onChange={() => onSwitchComplete(recipe._id)}
-      />
+      /> */}
       <p>{recipe.title}</p>
-      {/* <img src={recipe.imageUrl}> */}
+      <img src={recipe.imageUrl} alt={recipe.title} />
       <p className="recipe-delete" onClick={() => handleDelete(recipe._id)}>
         Delete
       </p>
-
     </div>
-
-    
-    
-
   );
 };
 

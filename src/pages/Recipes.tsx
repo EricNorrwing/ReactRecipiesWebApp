@@ -1,23 +1,27 @@
-import React, { Component, useState } from "react";
+// Recipes.tsx
 
-import { SearchBar } from "../components/SearchBar"
-import { SearchResultsList } from "../components/SearchResultsList";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Recipe } from "../components/types";
+import RecipeList from "../components/RecipeList";
 
+const Recipes = () => {
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const URL = "https://sti-java-grupp1-5znlnp.reky.se";
 
-function Recipes() {
-    const [results, setResults] = useState([]);
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      const response = await axios.get(`${URL}/recipes`);
 
-    return (
-        <div>
-            <div>
-                <h3>Hello from Recipes</h3>
-                <SearchBar setResults={setResults} />
-                <SearchResultsList results={results} />
-            </div>
-        </div>
-    )
+      if (response.status === 200) {
+        setRecipes(response.data);
+      }
+    };
 
+    fetchRecipes();
+  }, []);
 
-}
+  return <RecipeList recipes={recipes} />;
+};
 
-export default Recipes
+export default Recipes;
