@@ -5,38 +5,81 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.recipe-list{
+  background-color: #888;
+  border-radius: 8px;
+  padding: 10px;
+  color: aliceblue;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.recipe-component{
+  display: flex;
+  line-height: 0.5px;
+  gap: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.recipe-component img{
+  max-width: 100px;
+  height: auto;
 }
 
-.card {
-  padding: 2em;
+.btn-add{
+  background-color: coral;
+}
+.btn-add-ingredient{
+  background-color: red;
+  width: 150px;
+  height: 40px;
+  margin-top: 10px;
 }
 
-.read-the-docs {
-  color: #888;
+.recipe-delete{
+  background-color: red;
+  padding: 10px ;
+  border-radius: 10px;
+  cursor: pointer;
+  
+}
+
+
+.input-wrapper-home {
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px #ddd;
+  display: inline;
+  align-items: center;
+  margin-top: 20px;
+
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1.25rem;
+  color: black;
+}
+
+input:focus {
+  outline: none; 
+}
+
+textarea {
+  font-style: arial;
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1.25rem;
+  color: black;
+}
+
+textarea:focus {
+  outline: none; 
+}
+
+
+
+
+#search-icon {
+  color: royalblue;
 }
